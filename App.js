@@ -1,7 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 
 import HomeScreen from './HomeScreen';
+import NextScreen from './NextScreen';
+
+const Stack = createStackNavigator();
+
 const App = () => {
   return (
     <NavigationContainer>
@@ -12,4 +17,5 @@ const App = () => {
     </NavigationContainer>
   );
 };
+
 export default App;
