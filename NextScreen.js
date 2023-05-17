@@ -1,26 +1,77 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet,ScrollView, TouchableOpacity   } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const NextScreen = ({ navigation }) => {
-  const paragraphs = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium consequat mi, non efficitur felis consectetur non. Maecenas lobortis, nunc ac tincidunt condimentum, urna metus suscipit est, sit amet volutpat felis neque sed justo.",
-    "Vivamus in enim quis ligula rhoncus cursus. Nullam at mauris nec dui blandit luctus. Nunc sed ultricies massa. Duis iaculis ex vitae felis dictum convallis. In fringilla pretium lectus, in congue lacus fermentum ac.",
-    "Phasellus ut ante fermentum, consectetur felis eget, suscipit mauris. Curabitur at velit bibendum, varius lorem eu, auctor tellus. Nulla facilisi. Nulla tempus pharetra ante, in venenatis lectus efficitur vel.",
-    "Nulla dictum, velit eget tristique tincidunt, nisi nulla vehicula elit, nec commodo erat lacus at arcu. Nulla nec nibh id elit dapibus dignissim. Donec bibendum auctor tellus. Sed dapibus risus id ligula faucibus elementum."
-  ];
+const NextScreen = () => {
+  const navigation = useNavigation();
 
-  const handleParagraphPress = () => {
-    // Aqui você pode navegar para uma nova página ou fazer qualquer outra ação necessária
+  const navigateToScreen = (number) => {
+    navigation.navigate('DynamicPage', { number });
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Título da Página</Text>
-      {paragraphs.map((paragraph, index) => (
-        <TouchableOpacity key={index} onPress={handleParagraphPress}>
-          <Text style={styles.paragraph}>{paragraph}</Text>
+      <View>
+        <Text style={styles.title}>Next Screen</Text>
+
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+          consequat tortor nec justo tristique eleifend. Vivamus consectetur ex
+          non arcu pellentesque, in vestibulum velit pulvinar. In feugiat risus
+          eu diam mattis, sed bibendum neque euismod.
+        </Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigateToScreen('Screen1')}
+        >
+          <Text style={styles.buttonText}>1</Text>
         </TouchableOpacity>
-      ))}
+      </View>
+
+      <View>
+        <Text style={styles.text}>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Phasellus tincidunt sapien ut finibus consectetur. Nulla facilisi. Nam
+          convallis consequat tellus, in ultrices elit commodo et. Sed feugiat
+          semper enim eget interdum.
+        </Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigateToScreen('Screen2')}
+        >
+          <Text style={styles.buttonText}>2</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View>
+        <Text style={styles.text}>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+          ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident.
+        </Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigateToScreen('Screen3')}
+        >
+          <Text style={styles.buttonText}>3</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View>
+        <Text style={styles.text}>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Quisque vitae consectetur ligula, at
+          mollis metus. Sed aliquet tellus sit amet magna gravida, id ultrices
+          sem facilisis. Nunc non massa in nibh rhoncus dignissim ac nec eros.
+        </Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigateToScreen('Screen4')}
+        >
+          <Text style={styles.buttonText}>4</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 };
@@ -28,21 +79,29 @@ const NextScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    padding: 20,
-    backgroundColor: '#F5F5F5',
+    padding: 16,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  paragraph: {
-    fontSize: 18,
-    lineHeight: 24,
-    textAlign: 'justify',
     marginBottom: 16,
-    color: '#333',
+  },
+  text: {
+    fontSize: 18,
+    marginBottom: 16,
+  },
+  button: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'blue',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
   },
 });
 
