@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "60212389996",
+    "project_id": "gamebook-d812c",
+    "storage_bucket": "gamebook-d812c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60212389996:android:ebc9269a52ece84fa61049",
+        "android_client_info": {
+          "package_name": "gamebook.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60212389996-e7ekkj1ftgbtmoil30elbs38doccfrdn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQJd1xuSw01ygINJu31UBrPQS0Qzrw05o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60212389996-e7ekkj1ftgbtmoil30elbs38doccfrdn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

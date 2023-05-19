@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, Button } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
-    return (
+const  HomeScreen = ({ navigation }) => {
+  
+
+  
+  return (
       <View>
         <Button
           title="Ir para a próxima tela"
@@ -12,3 +15,6 @@ const HomeScreen = ({ navigation }) => {
     );
   };
   export default HomeScreen;
+
+
+

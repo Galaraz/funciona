@@ -5,18 +5,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './HomeScreen';
 import NextScreen from './NextScreen';
 import DynamicPage from './DynamicPage';
+import HelloWorld from './HelloWorld';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="NextScreen" component={NextScreen} />
-        <Stack.Screen name="DynamicPage" component={DynamicPage} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <HelloWorld />
+    // <NavigationContainer>
+    //   <Stack.Navigator>
+    //     <Stack.Screen name="Home" component={HomeScreen} />
+    //     <Stack.Screen name="NextScreen" component={NextScreen} />
+    //     <Stack.Screen name="DynamicPage" component={DynamicPage} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
   );
 };
 
