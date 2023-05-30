@@ -5,8 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 const NextScreen = () => {
   const navigation = useNavigation();
 
-  const navigateToScreen = (number) => {
-    navigation.navigate('DynamicPage', { number });
+  const navigateToScreen = (page, paragrafo ) => {
+    navigation.navigate('DynamicPage', { page,paragrafo });
   };
 
   return (
@@ -22,7 +22,7 @@ const NextScreen = () => {
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigateToScreen('Screen1')}
+          onPress={() => navigateToScreen('1' ,'5')}
         >
           <Text style={styles.buttonText}>1</Text>
         </TouchableOpacity>
@@ -37,7 +37,7 @@ const NextScreen = () => {
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigateToScreen('Screen2')}
+          onPress={() => navigateToScreen('2')}
         >
           <Text style={styles.buttonText}>2</Text>
         </TouchableOpacity>
@@ -52,7 +52,7 @@ const NextScreen = () => {
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigateToScreen('Screen3')}
+          onPress={() => navigateToScreen('3')}
         >
           <Text style={styles.buttonText}>3</Text>
         </TouchableOpacity>
@@ -67,7 +67,7 @@ const NextScreen = () => {
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigateToScreen('Screen4')}
+          onPress={() => navigateToScreen('4')}
         >
           <Text style={styles.buttonText}>4</Text>
         </TouchableOpacity>
