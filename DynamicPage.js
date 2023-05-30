@@ -19,7 +19,7 @@ const DynamicPage = () => {
         const responseData = response.data;
 
         if (responseData) {
-          const foundData = responseData.find(item => parseInt(item.id) == parseInt(5));
+          const foundData = responseData.find(item => parseInt(item.id) == parseInt(paragrafo));
            console.log(responseData)
           if (foundData) {
             console.log(foundData)
