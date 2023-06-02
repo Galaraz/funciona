@@ -12,6 +12,7 @@ const DynamicPage = () => {
   const urlApi = `https://apigamebook.onrender.com/book/${page}` || `http://localhost:3000/book/${page}`;
 
   const navigateToScreen = (page, paragrafo ) => {
+    console.log(page, paragrafo)
     navigation.navigate('DynamicPage', { page,paragrafo });
   };
   useEffect(() => {
@@ -50,7 +51,8 @@ const DynamicPage = () => {
               <TouchableOpacity
                 key={index}
                 style={styles.button}
-                onPress={() => navigateToScreen('1', { op: op.op })}
+                
+                onPress={() => navigateToScreen({ page: op.cod[0], paragrafo: op.cod[1]})}
               >
                 <Text style={{ fontSize: 16, marginTop: 10 }}>{op.titulo} {op.op}</Text>
               </TouchableOpacity>
