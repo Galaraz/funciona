@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text,TouchableOpacity,StyleSheet,ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import axios from 'axios';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import parse from 'html-react-parser';
@@ -9,26 +9,27 @@ const DynamicPage = () => {
   const route = useRoute();
   const { page, paragrafo } = route.params;
   const [bookData, setBookData] = useState(null);
-  const urlApi = `https://apigamebook.onrender.com/book/${page}` || `http://localhost:3000/book/${page}`;
+  const urlApi = `https://gamebook-adm.vercel.app/api/page/${page}` || `http://localhost:3000/book/${page}`;
 
-  const navigateToScreen = (page, paragrafo ) => {
-    console.log(page, paragrafo)
-    navigation.navigate('DynamicPage', { page,paragrafo });
+  const navigateToScreen = async (page, paragrafo) => {
+    console.log(page, paragrafo);
+    await navigation.navigate('DynamicPage', { page, paragrafo });
+    window.location.reload(); // Recarrega a página após a navegação
   };
+
   useEffect(() => {
     const fetchBook = async () => {
       try {
         const response = await axios.get(urlApi);
         const responseData = response.data;
 
-        if (responseData) {
-          const foundData = responseData.find(item => parseInt(item.id) == parseInt(paragrafo));
-           
+        if (responseData && responseData.paragrafos) {
+          const foundData = responseData.paragrafos.find(item => parseInt(item.id) === parseInt(paragrafo));
+
           if (foundData) {
-            console.log(foundData)
             setBookData(foundData);
           } else {
-            console.log(`Objeto com ID  não encontrado.`);
+            console.log(`Objeto com ID ${paragrafo} não encontrado.`);
           }
         }
       } catch (error) {
@@ -44,19 +45,23 @@ const DynamicPage = () => {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         {bookData ? (
           <View>
-            {/* <Text style={{ fontSize: 24 }}>{bookData.id}</Text> */}
             <Text style={{ fontSize: 24 }}>{bookData.par_titulo}</Text>
             <Text style={{ fontSize: 16, marginTop: 10 }}>{parse(bookData.par_texto.mensagem)}</Text>
-            {bookData.par_texto.ops && bookData.par_texto.ops.map((op, index) => (
-              <TouchableOpacity
-                key={index}
-                style={styles.button}
-                
-                onPress={() => navigateToScreen({ page: op.cod[0], paragrafo: op.cod[1]})}
-              >
-                <Text style={{ fontSize: 16, marginTop: 10 }}>{op.titulo} {op.op}</Text>
-              </TouchableOpacity>
-            ))}
+            {bookData.par_texto.ops &&
+              bookData.par_texto.ops.map((op, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={styles.button}
+                  onPress={() => {
+                    navigateToScreen(op.cod[0], op.cod[1]);
+                    console.log(op.cod[0], op.cod[1]);
+                  }}
+                  
+                >
+                  <Text style={{ fontSize: 16, marginTop: 10 }}>{op.titulo} {op.op}</Text>
+                 
+                </TouchableOpacity>
+              ))}
           </View>
         ) : (
           <Text style={{ fontSize: 18 }}>Carregando...</Text>
