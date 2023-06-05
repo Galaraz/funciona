@@ -9,11 +9,13 @@ const DynamicPage = () => {
   const route = useRoute();
   const { page, paragrafo } = route.params;
   const [bookData, setBookData] = useState(null);
+  const urlApi = `https://gamebook-adm.vercel.app/api/page/${page}` || `http://localhost:3000/book/${page}`;
 
   const navigateToScreen = async (page, paragrafo) => {
     console.log(page, paragrafo);
     await navigation.navigate('DynamicPage', { page, paragrafo });
     window.location.reload(); // Recarrega a página após a navegação
+
   };
 
   useEffect(() => {
