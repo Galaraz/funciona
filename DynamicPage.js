@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import axios from 'axios';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import parse from 'html-react-parser';
@@ -63,6 +63,8 @@ const DynamicPage = () => {
                  
                 </TouchableOpacity>
               ))}
+              {bookData.par_imagem && <Image source={{ uri: bookData.par_imagem }} style={styles.image} />}
+
           </View>
         ) : (
           <Text style={{ fontSize: 18 }}>Carregando...</Text>
@@ -85,6 +87,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     marginBottom: 16,
+  },
+  image: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
   },
   button: {
     // backgroundColor: 'blue',

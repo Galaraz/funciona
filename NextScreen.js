@@ -67,7 +67,7 @@ const NextScreen = () => {
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigateToScreen('1','4')}
+          onPress={() => navigateToScreen('2','8')}
         >
           <Text style={styles.buttonText}>4</Text>
         </TouchableOpacity>
