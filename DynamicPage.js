@@ -89,9 +89,10 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   image: {
-    width: 200,
+    width: 280,
     height: 200,
     resizeMode: 'contain',
+    alignSelf: 'center',
   },
   button: {
     // backgroundColor: 'blue',
