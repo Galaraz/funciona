@@ -50,7 +50,7 @@ const DynamicPage = () => {
         {bookData ? (
           <View>
             <Text style={{ fontSize: 24 }}>{bookData.par_titulo}</Text>
-            <Text style={{ fontSize: 16, marginTop: 10 , padding: 10}}>
+            <Text style={{ fontSize: 16, marginTop: 15 }}>
               <HTML source={source} contentWidth={width} />
             </Text>
             {bookData.par_texto.ops &&
